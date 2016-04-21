@@ -1,0 +1,21 @@
+option java_package = "com.thomsonreuters.ce.hbasestudy.coprocesor.endpoint.RowCount.generated";
+option java_outer_classname = "RowCounterProtos";
+option java_generic_services = true;
+option java_generate_equals_and_hash = true;
+option optimize_for = SPEED;
+
+message CountRequest {
+}
+
+message CountResponse {
+  required int64 count = 1 [default = 0];
+}
+
+service RowCountService {
+  rpc getRowCount(CountRequest)
+    returns (CountResponse);
+  rpc getCellCount(CountRequest)
+    returns (CountResponse);
+}
+
+//protoc -I=D:\mydoc\myjavaworkspace\hbasestudy\src\main\java\ --java_out=D:\mydoc\myjavaworkspace\hbasestudy\src\main\java\ D:\mydoc\myjavaworkspace\hbasestudy\src\main\java\com\thomsonreuters\ce\hbasestudy\coprocesor\endpoint\RowCount\RowCountService.proto
